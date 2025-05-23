@@ -61,13 +61,25 @@ class Add(Numeric):
 		right = float(self.right.eval(env, aTurtle))
 		return (left + right)
 
-"""
-Implement
-
 class Subtrat(Numeric):
+    def __init__(self, left, right):
+        self.left = left
+        self.right = right
+        
+    def eval(self, env, aTurtle):
+        left = float(self.left.eval(env, aTurtle))
+        right = float(self.right.eval(env, aTurtle))
+        return (left - right)
 
 class Multiply(Numeric):
-"""
+	def __init__(self, left, right):
+		self.left = left
+		self.right = right
+  
+	def eval(self, env, aTurtle):
+		left = float(self.left.eval(env, aTurtle))
+		right = float(self.right.eval(env, aTurtle))
+		return (left * right)
 		
 class Divide(Numeric):
 	def __init__(self, left, right, line):
@@ -135,17 +147,43 @@ class LesserOrEqual(Logic):
 		right = float(self.right.eval(env, aTurtle))
 		return (left <= right)
 	
-"""
-Implement
-
 class Greater(Logic):
+	def __init__(self, left, right):
+		self.left = left
+		self.right = right
+  
+	def eval(self, env, aTurtle):
+		left = float(self.left.eval(env, aTurtle))
+		right = float(self.right.eval(env, aTurtle))
+		return (left > right)
 
 class GreaterOrEqual(Logic):
-
+	def __init__(self, left, right):
+		self.left = left
+		self.right = right
+  
+	def eval(self, env, aTurtle):
+		left = float(self.left.eval(env, aTurtle))
+		right = float(self.right.eval(env, aTurtle))
+		return (left >= right)
 class Equal(Logic):
-
+	def __init__(self, left, right):
+		self.left = left
+		self.right = right
+  
+	def eval(self, env, aTurtle):
+		left = float(self.left.eval(env, aTurtle))
+		right = float(self.right.eval(env, aTurtle))
+		return (left == right)
 class Different(Logic):
-"""
+	def __init__(self, left, right):
+		self.left = left
+		self.right = right
+  
+	def eval(self, env, aTurtle):
+		left = float(self.left.eval(env, aTurtle))
+		right = float(self.right.eval(env, aTurtle))
+		return (left != right)
 
 class And(Logic):
 	def __init__(self, left, right):
@@ -282,15 +320,27 @@ class PenUp(Void):
 	def eval(self, env, aTurtle):
 		aTurtle.penup()
 
-"""
-Implement
-
 class Arc(Void):
+	def __init__(self, radius, degree):
+		self.radius = radius
+		self.degree = degree
+  
+	def eval(self, env, aTurtle):
+		radius = float(self.radius.eval(env, aTurtle))
+		degree = float(self.degree.eval(env, aTurtle))
+		aTurtle.circle(radius, degree)
 
 class Circle(Void):
+	def __init__(self, radius):
+		self.radius = radius
+  
+	def eval(self, env, aTurtle):
+		radius = float(self.radius.eval(env, aTurtle))
+		aTurtle.circle(radius)
 
 class Clear(Void):
-"""
+	def eval(self, env, aTurtle):
+		aTurtle.clear()
 
 class SetXY(Void):
 	def __init__(self, xExpression, yExpression):
@@ -318,19 +368,42 @@ class SetY(Void):
 		y = int(self.expression.eval(env, aTurtle))
 		aTurtle.sety(y)
 
-"""
-Implement
 
 class Left(Void):
+    def __init__(self, expression):
+        self.expression = expression
+        
+    def eval(self, env, aTurtle):
+        expression = float(self.expression.eval(env, aTurtle))
+        aTurtle.left(expression)
 
 class Right(Void):
+    def __init__(self, expression):
+        self.expression = expression
+        
+    def eval(self, env, aTurtle):
+        expression = float(self.expression.eval(env, aTurtle))
+        aTurtle.right(expression)
 
 class Backward(Void):
+    def __init__(self, expression):
+        self.expression = expression
+        
+    def eval(self, env, aTurtle):
+        expression = float(self.expression.eval(env, aTurtle))
+        aTurtle.backward(expression)
 
 class Forward(Void):
+    def __init__(self, expression):
+        self.expression = expression
+        
+    def eval(self, env, aTurtle):
+        expression = float(self.expression.eval(env, aTurtle))
+        aTurtle.forward(expression)
 
-class Home(Void):
-"""
+class Home(Void):  
+    def eval(self, env, aTurtle):
+        aTurtle.home()
 
 class Assigment(Void):
 	def __init__(self, id, expression, line):
