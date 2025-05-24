@@ -41,7 +41,7 @@ class Identifier(Numeric):
 			(_, value) = result
 			return value
 		else:
-			text = 'Line ' + self.line + " - " + self.name + " has not been declared"
+			text = 'Line ' + str(self.line) + " - " + self.name + " has not been declared"
 			raise Exception(text)
 	
 class Minus(Numeric):
@@ -433,7 +433,7 @@ class IdDeclaration(Void):
 
 	def eval(self, env, aTurtle):
 		if not env.insert(self.id):
-			text = 'Line ' + self.line + " - redeclaration of " + str(self.id)
+			text = 'Line ' + str(self.line) + " - redeclaration of " + str(self.id)
 			raise Exception(text)
 
 class idDeclarationList(Void):
